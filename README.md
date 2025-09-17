@@ -182,33 +182,41 @@ def jwt_required(f):
 ### Уязвимости (`unsafe.py`)
 
 1. Получение данных без аутентификации (`/api/data/`)
+![No auth](./screenshots/1.jpg)
 
 2. Вставка несанитизированных пользовательских данных. Неэкранированный HTML с JS скриптом. (`/api/records/`)
-
+![XSS](./screenshots/2.jpg)
 Приводит к выполнению вредоносного javascript кода на странице в браузере пользователя.
+![JS executed](./screenshots/3.jpg)
 
 3. SQL инъекция. Выполнение сырого SQL запроса. (`/api/records/`)
-
+![SQLi](./screenshots/4.jpg)
 Приводит к несанкционированному доступу к конфиденциальным данным.
-
+![SQLi result](./screenshots/5.jpg)
 
 ### Проверка кода с уязвимостями с помощью сканнеров
 
 1. Bandit выявил только SQL Injection
-
+![Bandit](./screenshots/7.jpg)
 2. Snyk также выявил только SQL Injection
-
+![Snyk](./screenshots/6.jpg)
 
 ### Код без уязвимостей (`safe.py`)
 
 1. Нельзя получить данные без аутентификации (`/api/data/`)
+![AuthorizationRequired](./screenshots/8.jpg)
 2. Токен нельзя получить, указав неправильный пароль (`/auth/login/`)
+![WrongCredentials](./screenshots/9.jpg)
 3. Получение токена (`/auth/login/`)
-4. SQLi и XSS не работают:
+![GotToken](./screenshots/10.jpg)
+4. SQLi и XSS не работают:\
 SQL и HTML экранируются
+![Escaped](./screenshots/11.jpg)
 
 ### Скриншоты отчетов SAST/SCA
 
-SAST
+**SAST**
+![SAST](./screenshots/12.jpg)
 
-SCA
+**SCA**
+![SCA](./screenshots/13.jpg)
