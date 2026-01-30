@@ -164,7 +164,7 @@ def jwt_required(f):
 
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
-            current_user = db.session.get(User, data['user_id'])
+            current_user = db.session.get(Person, data['user_id'])
             if current_user is None:
                 return jsonify({"msg": "User not found"}), 401
         except jwt.ExpiredSignatureError:
