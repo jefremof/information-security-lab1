@@ -37,7 +37,7 @@ if __name__ == '__main__':
             default_user = User.query.filter_by(username=default_username).first()
             default_password = os.getenv("DEFAULT_PASSWORD")
             if not default_user and default_password is not None:
-                default_user = User(username=default_username)
+                default_user = Person(username=default_username)
                 default_user.set_password(default_password)
                 db.session.add(default_user)
                 print(f"Added default user")

@@ -41,9 +41,9 @@ snyk code test
 
 Структура проекта:
 - requirements.txt  – зависимости
-- app\
-    - models.py     – модели (`User`, `Record`)
-    - template.py   – шаблон для HTML страницы 
+- app/
+    - models.py  (Person, Record)
+    - template.py   – шаблон для HTML страницы
     - safe.py       - Flask приложение с исправленными уязвимостями
     - unsafe.py     - Flask приложение с наличием уязвимостей
 
@@ -136,7 +136,7 @@ def login():
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
-    user = User.query.filter_by(username=username).first()
+    user = Person.query.filter_by(username=username).first()
 
     if user is None or not user.check_password(password):
         return jsonify({"msg": "Bad username or password"}), 401
