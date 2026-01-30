@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from template import render_page
-from models import db, User, Record
+from models import db, Person, Record
 from markupsafe import escape
 from functools import wraps
 import datetime

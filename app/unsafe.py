@@ -1,6 +1,6 @@
 from flask import Flask, request
 from template import render_page
-from models import db, User, Record
+from models import db, Person, Record
 import os
 
 app = Flask(__name__)
