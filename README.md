@@ -41,11 +41,11 @@ snyk code test
 
 Структура проекта:
 - requirements.txt  – зависимости
-- app\
-    - models.py     – модели (`User`, `Record`)
-    - template.py   – шаблон для HTML страницы 
-    - safe.py       - Flask приложение с исправленными уязвимостями
-    - unsafe.py     - Flask приложение с наличием уязвимостей
+- app
+  - models.py     – модели (`Person`, `Record`)
+  - template.py   – шаблон для HTML страницы 
+  - safe.py       - Flask приложение с исправленными уязвимостями
+  - unsafe.py     - Flask приложение с наличием уязвимостей
 
 Проект содержит следующие эндпоинты:
 
